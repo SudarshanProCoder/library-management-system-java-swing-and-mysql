@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author bikash
+ * @author sudarshan
  */
 public class ViewBook extends javax.swing.JFrame {
 
@@ -36,7 +36,8 @@ public class ViewBook extends javax.swing.JFrame {
         model = (DefaultTableModel) jTable1.getModel();
        // String Data[][]=null;
       //  String Column[]=null;
-        try(Connection Con = DB.getConnection()) {
+      DB db = new DB();
+        try(Connection Con = db.getConnection()) {
             PreparedStatement ps=Con.prepareStatement("select * from Books",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
             ResultSet rs= ps.executeQuery();
             
@@ -267,7 +268,8 @@ public class ViewBook extends javax.swing.JFrame {
        // String Data[][]=null;
       //  String Column[]=null;
             String Search = "%"+SearchField.getText()+"%";
-        try(Connection Con = DB.getConnection()) {
+            DB db = new DB();
+        try(Connection Con = db.getConnection()) {
             PreparedStatement ps=Con.prepareStatement("select * from Books where BookName like ?",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
             ps.setString(1, Search);
             ResultSet rs= ps.executeQuery();
@@ -318,7 +320,9 @@ public class ViewBook extends javax.swing.JFrame {
        // String Data[][]=null;
       //  String Column[]=null;
             String Search = "%"+SearchField.getText()+"%";
-        try(Connection Con = DB.getConnection()) {
+            DB db = new DB();
+
+        try(Connection Con = db.getConnection()) {
             PreparedStatement ps=Con.prepareStatement("select * from Books where Author like ?",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
             ps.setString(1, Search);
             ResultSet rs= ps.executeQuery();
@@ -402,7 +406,8 @@ public class ViewBook extends javax.swing.JFrame {
             model.removeRow(model.getRowCount()-1);
        // String Data[][]=null;
       //  String Column[]=null;
-        try(Connection Con = DB.getConnection()) {
+      DB db = new DB();
+        try(Connection Con = db.getConnection()) {
             PreparedStatement ps=Con.prepareStatement("select * from Books",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
             ResultSet rs= ps.executeQuery();
             

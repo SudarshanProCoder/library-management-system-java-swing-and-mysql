@@ -7,7 +7,7 @@ package mainlibrary;
 
 /**
  *
- * @author bikash
+ * @author sudarshan
  */
 public class MainLibrary extends javax.swing.JFrame {
 

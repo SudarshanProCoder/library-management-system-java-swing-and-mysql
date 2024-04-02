@@ -8,7 +8,8 @@ public class BookDao {
 public static int save(String callno,String name,String author,String publisher,int quantity){
 	int status=0;
 	try{
-		Connection con=DB.getConnection();
+        DB db = new DB();
+		Connection con=db.getConnection();
 		PreparedStatement ps=con.prepareStatement("insert into books(callno,name,author,publisher,quantity) values(?,?,?,?,?)");
 		ps.setString(1,callno);
 		ps.setString(2,name);
@@ -29,7 +30,8 @@ public static int save(String callno,String name,String author,String publisher,
     public static boolean PublisherValidate( String Publisher)
 {
     boolean status = false;
-    try(Connection con = DB.getConnection()) {
+    DB db = new DB();
+    try(Connection con = db.getConnection()) {
         PreparedStatement ps = con.prepareStatement("select * from Publisher where PublisherName = ?"); 
         ps.setString(1, Publisher);
         ResultSet rs=ps.executeQuery();
@@ -42,7 +44,8 @@ public static int save(String callno,String name,String author,String publisher,
     public static int AddPublisher( String Publisher)
     {
         int status= 0;
-        try(Connection con = DB.getConnection()) {
+        DB db = new DB();
+        try(Connection con = db.getConnection()) {
 		PreparedStatement ps=con.prepareStatement("insert into Publisher(PublisherName) values(?)");
 		ps.setString(1,Publisher);
 		status=ps.executeUpdate();
@@ -55,7 +58,8 @@ public static int save(String callno,String name,String author,String publisher,
   
     public static int SaveBook(String BookN, String AuthorN, String PublisherN, String ShelfN, String RowN, String GenreN) {
             int status= 0;
-        try(Connection con = DB.getConnection()) {
+            DB db = new DB();
+        try(Connection con = db.getConnection()) {
 		PreparedStatement ps=con.prepareStatement("insert into Books(BookName,Author,Genre,Publisher,Shelf, Row) values(?,?,?,?,?,?)");
 		ps.setString(1,BookN);
                 ps.setString(2, AuthorN);
@@ -71,7 +75,8 @@ public static int save(String callno,String name,String author,String publisher,
     public static int Delete(int BookID)
     {
           int status= 0;
-        try(Connection con = DB.getConnection()) {
+          DB db = new DB();
+        try(Connection con = db.getConnection()) {
 		PreparedStatement ps=con.prepareStatement("DELETE FROM Books where BookID=?");
 		ps.setInt(1,BookID);
 		status=ps.executeUpdate();

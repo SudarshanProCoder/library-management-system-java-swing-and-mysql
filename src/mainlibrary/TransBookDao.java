@@ -7,7 +7,8 @@ public class TransBookDao {
 public static boolean checkBook(String bookcallno){
 	boolean status=false;
 	try{
-		Connection con=DB.getConnection();
+        DB db = new DB();
+		Connection con=db.getConnection();
 		PreparedStatement ps=con.prepareStatement("select * from Books where BookID=?");
 		ps.setString(1,bookcallno);
                 ResultSet rs=ps.executeQuery();
@@ -20,7 +21,8 @@ public static boolean checkBook(String bookcallno){
      public static boolean BookValidate( String BookID)
     {
     boolean status = false;
-    try(Connection con = DB.getConnection()) {
+    DB db = new DB();
+    try(Connection con = db.getConnection()) {
         PreparedStatement ps = con.prepareStatement("select * from Books where BookID = ?"); 
         ps.setString(1, BookID);
         ResultSet rs=ps.executeQuery();
@@ -33,7 +35,8 @@ public static boolean checkBook(String bookcallno){
          public static boolean UserValidate( String UserID)
     {
     boolean status = false;
-    try(Connection con = DB.getConnection()) {
+    DB db = new DB();
+    try(Connection con = db.getConnection()) {
         PreparedStatement ps = con.prepareStatement("select * from Users where UserID = ?"); 
         ps.setString(1, UserID);
         ResultSet rs=ps.executeQuery();
@@ -67,7 +70,8 @@ public static int updatebook(String bookcallno){
 	int status=0;
 	int quantity=0,issued=0;
 	try{
-		Connection con=DB.getConnection();
+        DB db = new DB();
+		Connection con=db.getConnection();
 		
 		PreparedStatement ps=con.prepareStatement("select quantity,issued from books where callno=?");
 		ps.setString(1,bookcallno);
@@ -93,8 +97,8 @@ public static int IssueBook(int BookID, int UserID, String IDate, String RDate)
 {
     int status =0;
     try{
-        
-        Connection con =DB.getConnection();
+        DB db = new DB();
+        Connection con =db.getConnection();
         PreparedStatement ps= con.prepareStatement("insert into IssuedBook values(?,?,?,?)");
         ps.setInt(1,BookID);
         ps.setInt(2, UserID);
@@ -111,8 +115,8 @@ public static int IssueBook(int BookID, int UserID, String IDate, String RDate)
 {
     int status =0;
     try{
-        
-        Connection con =DB.getConnection();
+        DB db = new DB();
+        Connection con =db.getConnection();
         PreparedStatement ps= con.prepareStatement("delete from IssuedBook where BookID=? and UserID=?");
         ps.setInt(1,BookID);
         ps.setInt(2, UserID);
@@ -126,7 +130,8 @@ public static int IssueBook(int BookID, int UserID, String IDate, String RDate)
 public static boolean CheckIssuedBook(int BookID)
 {
     boolean status = false;
-    try(Connection con = DB.getConnection()) {
+    DB db = new DB();
+    try(Connection con = db.getConnection()) {
         PreparedStatement ps = con.prepareStatement("select * from IssuedBook  where BookID=?"); 
         ps.setInt(1, BookID);
         ResultSet rs=ps.executeQuery();
@@ -140,7 +145,8 @@ public static boolean CheckIssuedBook(int BookID)
    {
        boolean status=false;
        int num = 0;
-       try(Connection con = DB.getConnection()) {
+       DB db = new DB();
+       try(Connection con = db.getConnection()) {
         PreparedStatement ps = con.prepareStatement("select * from Book_Count UserID=?"); 
         ps.setInt(2, UserID);
         ResultSet rs=ps.executeQuery();

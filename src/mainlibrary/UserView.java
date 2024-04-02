@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author bikash
+ * @author sudarshan
  */
 public class UserView extends javax.swing.JFrame {
 
@@ -41,7 +41,8 @@ public class UserView extends javax.swing.JFrame {
         model = (DefaultTableModel) jTable1.getModel();
        // String Data[][]=null;
       //  String Column[]=null;
-        try(Connection Con = DB.getConnection()) {
+      DB db = new DB();
+        try(Connection Con = db.getConnection()) {
             PreparedStatement ps=Con.prepareStatement("select IssuedBook.BookID,Books.BookName , IssuedBook.IssueDate, IssuedBook.ReturnDate from Books,IssuedBook where Books.BookID=IssuedBook.BookID and IssuedBook.UserID=?",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
             ps.setInt(1,UserIDV);
             ResultSet rs= ps.executeQuery();

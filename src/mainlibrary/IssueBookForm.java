@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import static mainlibrary.LibrarianSuccess.ThisLogined;
 /**
  *
- * @author bikash
+ * @author sudarshan
  */
 public class IssueBookForm extends javax.swing.JFrame {
 

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package mainlibrary;
 
 import java.awt.Frame;
@@ -10,10 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import static mainlibrary.LibrarianSuccess.ThisLogined;
 
-/**
- *
- * @author bikash
- */
+
 public class BookForm extends javax.swing.JFrame {
     
     /**

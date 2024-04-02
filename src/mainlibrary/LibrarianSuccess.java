@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 
 /**
  *  public static JFrame ThisLogined;
- * @author bikash
+ * @author sudarshan
  */
 public class LibrarianSuccess extends javax.swing.JFrame {
     
@@ -376,8 +376,9 @@ public class LibrarianSuccess extends javax.swing.JFrame {
                  String User=args[0];
         String Pass=args[1];
         try{
+            DB db = new DB();
 			Connection Con;
-                        Con = DB.getConnection();
+                        Con = db.getConnection();
 			PreparedStatement ps;
                         ps = Con.prepareStatement("select * from Librarian where UserName=? and Password=?");
 			ps.setString(1,User);

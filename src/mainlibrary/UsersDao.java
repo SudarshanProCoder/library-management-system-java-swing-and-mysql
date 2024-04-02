@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 
 /**
  *
- * @author bikash
+ * @author sudarshan
  */
 public class UsersDao {
     
@@ -19,7 +19,8 @@ public class UsersDao {
     public static boolean validate(String name,String password){
 		boolean status=false;
 		try{
-			Connection con=DB.getConnection();
+			DB db = new DB();
+			Connection con=db.getConnection();
 			PreparedStatement ps=con.prepareStatement("select * from Users where UserName=? and UserPass=?");
 			ps.setString(1,name);
 			ps.setString(2,password);
@@ -34,7 +35,8 @@ public class UsersDao {
     {
         boolean status=false;
 		try{
-			Connection con=DB.getConnection();
+			DB db = new DB();
+			Connection con=db.getConnection();
 			PreparedStatement ps=con.prepareStatement("select * from Users where UserName=?");
 			ps.setString(1,UserName);
 			ResultSet rs=ps.executeQuery();
@@ -52,8 +54,8 @@ public class UsersDao {
        
          int status =0;
          try{
-        
-            Connection con =DB.getConnection();
+			DB db = new DB();
+            Connection con =db.getConnection();
             PreparedStatement ps= con.prepareStatement("insert into Users(UserPass,RegDate,UserName,Email) values(?,?,?,?)");
             ps.setString(1,UserPass);
             ps.setString(2,Date);

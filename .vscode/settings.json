@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "d:\\PROJECTS\\DBMS_MINI_PROJECT\\Hotel-Management-System-Java\\hotel-management\\External_JARS\\mysql-connector-java-5.1.47-bin.jar"
+    ]
+}

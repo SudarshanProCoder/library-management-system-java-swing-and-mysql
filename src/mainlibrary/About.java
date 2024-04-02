@@ -1,19 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package mainlibrary;
 
-/**
- *
- * @author bikash
- */
 public class About extends javax.swing.JFrame {
 
-    /**
-     * Creates new form About
-     */
+   
     public About() {
         initComponents();
     }
@@ -38,7 +28,7 @@ public class About extends javax.swing.JFrame {
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Developed by:\n             Bikash Kumar Tudu\t\t\tKalkute Piyush Premchand\n             CSE150001006\t\t\tCSE150001013\n");
+        jTextArea1.setText("Developed by: Sudarshan Date\t\t\t");
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton1.setText("Back");
@@ -52,7 +42,7 @@ public class About extends javax.swing.JFrame {
         jTextArea3.setBackground(new java.awt.Color(210, 106, 231));
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
-        jTextArea3.setText("\n                                                                About\n                                           Library Managment  Software");
+        jTextArea3.setText("\n   About\n                                           Library Managment  Software");
         jTextArea3.setAutoscrolls(false);
         jScrollPane3.setViewportView(jTextArea3);
 

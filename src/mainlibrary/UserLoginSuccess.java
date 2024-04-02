@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 
 /**
  *
- * @author bikash
+ * @author sudarshan
  */
 public class UserLoginSuccess extends javax.swing.JFrame {
     
@@ -252,8 +252,9 @@ public class UserLoginSuccess extends javax.swing.JFrame {
         String User=args[0];
         String Pass=args[1];
         try{
+            DB db = new DB();
 			Connection Con;
-                        Con = DB.getConnection();
+                        Con = db.getConnection();
 			PreparedStatement ps;
                         ps = Con.prepareStatement("select * from Users where UserName=? and UserPass=?");
 			ps.setString(1,User);
